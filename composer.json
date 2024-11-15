@@ -14,6 +14,7 @@
   "require": {
     "php": "^7.4 || ^8.0",
     "dyorg/slim-token-authentication": "dev-slim4",
+    "guzzlehttp/guzzle": "^7.9",
     "kinde-oss/kinde-auth-php": "^1.2.0",
     "monolog/monolog": "^2.4",
     "neomerx/cors-psr7": "^2.0",

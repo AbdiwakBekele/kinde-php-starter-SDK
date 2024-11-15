@@ -70,10 +70,10 @@ return [
     'logger.options' => [],
 
     'kinde' => [
-        'HOST' => 'YOUR_KINDE_HOST',
-        'REDIRECT_URL' => 'http://localhost:8888/callback',
-        'LOGOUT_REDIRECT_URL' => 'http://localhost:8888',
-        'CLIENT_ID' => 'YOUR_KINDE_CLIENT_ID',
-        'CLIENT_SECRET' => 'YOUR_KINDE_CLIENT_SECRET',
+        'HOST' => 'https://testabdiwak.kinde.com',
+        'REDIRECT_URL' => 'http://localhost:8000/callback',
+        'LOGOUT_REDIRECT_URL' => 'http://localhost:8000',
+        'CLIENT_ID' => '6c599763716a4899a96399bdc8ee4569',
+        'CLIENT_SECRET' => 'm5dpBv8JdbAwrzp49jNeHSXXCEhhEE14gEO5a9TIDcmK9NZyS',
     ]
 ];

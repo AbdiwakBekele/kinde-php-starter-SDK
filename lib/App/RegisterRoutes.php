@@ -26,9 +26,12 @@ declare(strict_types=1);
 
 namespace OpenAPIServer\App;
 
+use OpenAPIServer\Api\KindeApiClient;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpNotImplementedException;
+use Slim\Views\PhpRenderer;
+use Slim\Logger;
 
 /**
  * RegisterRoutes Class Doc Comment
@@ -37,8 +40,10 @@ use Slim\Exception\HttpNotImplementedException;
  * @author  OpenAPI Generator team
  * @link    https://github.com/openapitools/openapi-generator
  */
-class RegisterRoutes
-{
+class RegisterRoutes {
+
+    private Logger $logger;
+
     /** @var array[] list of all api operations */
     private $operations = [
         [
@@ -236,8 +241,7 @@ class RegisterRoutes
      *
      * @throws HttpNotImplementedException When implementation class doesn't exists
      */
-    public function __invoke(\Slim\App $app): void
-    {
+    public function __invoke(\Slim\App $app): void {
         $app->options('/{routes:.*}', function (ServerRequestInterface $request, ResponseInterface $response) {
             // CORS Pre-Flight OPTIONS Request Handler
             return $response;
@@ -283,5 +287,23 @@ class RegisterRoutes
                 $route->add($middleware);
             }
         }
+
+        $app->get('/get-organizations', function (ServerRequestInterface $request, $response) {
+            $subdomain = 'testabdiwak';
+            $clientId = '6c599763716a4899a96399bdc8ee4569';
+            $clientSecret = 'm5dpBv8JdbAwrzp49jNeHSXXCEhhEE14gEO5a9TIDcmK9NZyS';
+
+            $kindeApiClient = new KindeApiClient($subdomain, $clientId, $clientSecret);
+
+            // Call the getOrganizations method
+            $organizations = $kindeApiClient->getOrganizations();
+
+            // Check if response is valid
+            if ($organizations === null) {
+                return $response->withStatus(500, 'Failed to retrieve organizations');
+            }
+
+            return $response;
+        });
     }
 }
