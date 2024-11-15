@@ -47,3 +47,15 @@ $ php -S localhost:8888 -t public
 Now, you can open the browser and go to http://localhost:8888
 
 For more information, please checkout `src/Api/Main.php`
+
+
+-------------------------------------------------
+Additional Kinde Management API
+-------------------------------------------------
+
+- Created an account in Kinde
+- Created Two additional organizations (AddisSoft and EthioTel), in total 3 Organization including Default Organization
+- Setuped M2M and Authorized the Kinde Management API with all Scopes
+- Cloned the php-starter-kit, updated all the credentails and the api keys for Kinde Management API
+- Created a route /get-organizations, and also a controller KindeApiClient.php to handle the cURL operation
+- With the route http://localhost:8000/get-organizations, it returns all the registered organizations.
